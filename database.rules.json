@@ -1,0 +1,45 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "rooms": {
+      "$r": {
+        "host": {
+          ".read": "auth != null",
+          ".write": "auth != null && !data.exists()",
+          ".validate": "newData.val() === auth.uid"
+        },
+        "open": {
+          ".read": "auth != null",
+          ".write": "auth != null && root.child('rooms/' + $r + '/host').val() === auth.uid"
+        },
+        "video": {
+          ".read": "auth != null",
+          ".write": "auth != null && (root.child('rooms/' + $r + '/host').val() === auth.uid || root.child('rooms/' + $r + '/open').val() === true)"
+        },
+        "users": {
+          ".read": "auth != null",
+          "$u": {
+            ".write": "auth != null && auth.uid === $u",
+            ".validate": "newData.child('name').isString() && newData.child('name').val().length <= 20"
+          }
+        },
+        "chat": {
+          ".read": "auth != null",
+          "$m": {
+            ".write": "auth != null && !data.exists()",
+            ".validate": "newData.child('uid').val() === auth.uid && newData.child('x').isString() && newData.child('x').val().length <= 500"
+          }
+        },
+        "rtc": {
+          "$to": {
+            ".read": "$to === auth.uid",
+            "$m": {
+              ".write": "auth != null && (!data.exists() || $to === auth.uid)"
+            }
+          }
+        }
+      }
+    }
+  }
+}
