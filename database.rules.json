@@ -2,8 +2,21 @@
   "rules": {
     ".read": false,
     ".write": false,
+    "roomIndex": {
+      ".read": "auth != null",
+      "$r": {
+        ".write": "auth != null && (!data.exists() || data.val() < now - 172800000)",
+        ".validate": "newData.isNumber()"
+      }
+    },
     "rooms": {
       "$r": {
+        ".write": "auth != null && !newData.exists() && root.child('roomIndex/' + $r).exists() && root.child('roomIndex/' + $r).val() < now - 172800000",
+        "created": {
+          ".read": "auth != null",
+          ".write": "auth != null && !data.exists()",
+          ".validate": "newData.isNumber()"
+        },
         "host": {
           ".read": "auth != null",
           ".write": "auth != null && !data.exists()",
