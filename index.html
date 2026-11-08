@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,interactive-widget=resizes-content">
-<meta name="theme-color" content="#0e0e13">
+<meta name="theme-color" content="#0f0b1a">
 <title>Watch Party - Watch together, talk &amp; chat</title>
 <meta name="description" content="Watch YouTube together, talk and chat with friends in real time.">
 <meta property="og:type" content="website">
@@ -9,19 +9,25 @@
 <meta property="og:title" content="Join my Watch Party">
 <meta property="og:description" content="Watch videos together, talk and chat live. Tap to join the room!">
 <meta property="og:url" content="https://watchparty24.vercel.app/">
-<meta property="og:image" content="https://watchparty24.vercel.app/og.png">
+<meta property="og:image" content="https://watchparty24.vercel.app/og.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:alt" content="Two friends watching the same movie together from different places">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Join my Watch Party">
 <meta name="twitter:description" content="Watch videos together, talk and chat live.">
-<meta name="twitter:image" content="https://watchparty24.vercel.app/og.png">
-<link rel="icon" type="image/png" href="/favicon.png">
+<meta name="twitter:image" content="https://watchparty24.vercel.app/og.jpg">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/manifest.webmanifest">
 <link rel="preconnect" href="https://www.gstatic.com">
+<link rel="preload" as="image" href="/hero.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Watch Party","alternateName":"Watch Party 24","url":"https://watchparty24.vercel.app/"}</script>
 <style>
-:root{--bg:#0e0e13;--g1:#1c1c28;--c1:#1d1d27;--c2:#15151c;--b1:#3a3a47;--b2:#26262f;--bs:#101016;--fg:#f2f2f5;--mu:#8b8b99;--bd:rgba(255,255,255,.08);--inp:#13131a;--u1:#2a2a36;--u2:#22222c;--ac:#ff6a3d;--ac2:#ff3d7f;--ts:rgba(0,0,0,.4)}
+:root{--bg:#0f0b1a;--g1:#2a1646;--c1:#1b1530;--c2:#140f25;--b1:#3b3153;--b2:#272038;--bs:#0c0916;--fg:#f5f1ff;--mu:#9a8fb8;--bd:rgba(255,255,255,.09);--inp:#120d20;--u1:#2c2442;--u2:#241d38;--ac:#ff5fa2;--ac2:#9b5cf6;--ts:rgba(0,0,0,.4)}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{margin:0;height:100%;position:fixed;inset:0;overflow:hidden;background:radial-gradient(1200px 600px at 50% -10%,var(--g1),var(--bg));color:var(--fg);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;transition:background .3s}
 button,input{font:inherit;color:var(--fg)}
@@ -146,20 +152,62 @@ input[type=range]{padding:0;height:6px;accent-color:var(--ac);box-shadow:none;ba
 #toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%) translateY(20px);background:rgba(0,0,0,.85);color:#fff;padding:10px 16px;border-radius:99px;font-size:13px;opacity:0;transition:.2s;pointer-events:none;z-index:30;max-width:90%;text-align:center}
 #toast.on{opacity:1;transform:translateX(-50%)}
 @media(min-width:900px){.main{flex-direction:row;gap:16px;padding:0 16px 16px}.L{flex:1;min-width:0;overflow-y:auto}.C{width:400px;flex:none;background:linear-gradient(180deg,var(--c1),var(--c2));border:1px solid var(--bd);border-radius:20px;padding:14px;box-shadow:0 12px 36px rgba(0,0,0,.35)}.stage{border-radius:16px}}
+
+/* home page */
+#home{display:block;padding:0;background:radial-gradient(900px 520px at 50% -5%,#3b1d63,#120d22 60%,#0b0814)}
+.hwrap{min-height:100%;display:flex;align-items:center;justify-content:center;padding:18px}
+.hc{max-width:420px;padding:0;overflow:hidden;gap:0;background:linear-gradient(180deg,#1c1530,#130e24);border:1px solid rgba(255,255,255,.1);border-radius:28px;box-shadow:0 24px 70px rgba(168,85,247,.28),0 0 0 1px rgba(255,255,255,.04)}
+.hero{position:relative;line-height:0}
+.hero img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:55%;background:linear-gradient(180deg,transparent,#130e24)}
+.hb{padding:0 22px 22px;display:flex;flex-direction:column;gap:14px;margin-top:-30px;position:relative;z-index:1}
+.hb .logo{font-size:32px;line-height:1.1;margin-bottom:6px}
+.or{display:flex;align-items:center;gap:10px}
+.or::before,.or::after{content:"";flex:1;height:1px;background:rgba(255,255,255,.12)}
+.feat{display:flex;gap:8px;margin-top:4px}
+.feat div{flex:1;text-align:center;font-size:11px;color:#b9a9d6}
+.feat svg{margin:0 auto 5px;color:var(--ac);width:20px;height:20px}
+.foot{text-align:center;font-size:11px;color:#8f81ad}
+/* room header */
+header{gap:10px;padding:8px 12px}
+.rcode{background:var(--c1);border:1px solid var(--bd);border-radius:99px;padding:5px 12px 5px 10px;box-shadow:none;text-shadow:none;font-weight:700;letter-spacing:.08em;font-size:13px;gap:8px;color:var(--fg)}
+.rcode:active{transform:scale(.97);box-shadow:none}
+.rcode .rl{font-size:9px;letter-spacing:.14em;color:var(--mu);font-weight:600}
+.rcode svg{width:13px;height:13px;color:var(--mu)}
+.pres{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--mu)}
+.pd{display:flex;gap:4px}
+.pd i{width:8px;height:8px;border-radius:50%;background:var(--mu);opacity:.3}
+.pd i.on{background:#4ade80;opacity:1;box-shadow:0 0 7px rgba(74,222,128,.8)}
+.tag{margin-left:auto;font-size:12px;font-weight:600;border-radius:99px;padding:4px 11px;background:var(--c1);border:1px solid var(--bd);color:var(--mu)}
+.tag.host{color:#fff;border-color:transparent;background:linear-gradient(135deg,var(--ac),var(--ac2))}
+/* compact profile */
+.prof{display:flex;align-items:center;gap:12px}
+.prof .av{width:44px;height:44px;font-size:16px}
+.pn2{flex:1;min-width:0;display:flex;flex-direction:column;gap:7px}
+.pn2 b{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bub{display:flex;align-items:center;gap:8px;font-size:11px;color:var(--mu)}
+.s4{gap:8px}.s4 i{width:20px;height:20px}
+/* voice link dot on avatars */
+.vd{position:absolute;left:-3px;bottom:-3px;width:11px;height:11px;border-radius:50%;border:2px solid var(--bg);background:var(--mu);display:none}
+.vd.ok{display:block;background:#4ade80}.vd.bad{display:block;background:#ff7b7b}.vd.wait{display:block;background:#f5b324}
 </style></head><body>
 
-<div id="home"><div class="hc">
-  <div class="logo">Watch Party</div>
-  <p class="sub">Watch YouTube together, talk and chat with friends in real time.</p>
-  <input id="name" placeholder="Your name" maxlength="20">
-  <button class="pri big" id="mk">Create a room</button>
-  <div class="or">or join with a friend's code</div>
-  <div class="row"><input id="code" placeholder="Room code" maxlength="8"><button id="jn">Join</button></div>
-  <p class="er" id="er"></p>
-</div></div>
+<div id="home"><div class="hwrap"><div class="hc">
+  <div class="hero"><img src="/hero.jpg" alt="Two friends watching the same movie together from different places" width="1000" height="667" fetchpriority="high"></div>
+  <div class="hb">
+    <div><div class="logo">Watch Party</div><p class="sub">Watch YouTube together, talk and chat with friends in real time.</p></div>
+    <input id="name" placeholder="Your name" maxlength="20" autocomplete="nickname">
+    <button class="pri big" id="mk">Create a room</button>
+    <div class="or sub">or join with a friend's code</div>
+    <div class="row"><input id="code" placeholder="Room code" maxlength="8" autocapitalize="none"><button id="jn">Join</button></div>
+    <p class="er" id="er"></p>
+    <div class="feat"><div><span data-ic="heart"></span>Watch together</div><div><span data-ic="chat"></span>Talk &amp; chat</div><div><span data-ic="clock"></span>Anytime, anywhere</div></div>
+    <div class="foot">Up to 5 friends &middot; Rooms auto-delete after 48 hours</div>
+  </div>
+</div></div></div>
 
 <div id="room" hidden>
-  <header><b id="rc"></b><span id="cnt"></span><span class="tag" id="role"></span></header>
+  <header><button class="rcode" id="rcb" aria-label="Copy invite link"><span class="rl">ROOM</span><span id="rc"></span><span data-ic="copy"></span></button><div class="pres"><div class="pd" id="pds"></div><span id="cnt"></span></div><span class="tag" id="role"></span></header>
   <div class="main">
     <section class="L">
       <div class="stage" id="stage">
@@ -212,8 +260,7 @@ input[type=range]{padding:0;height:6px;accent-color:var(--ac);box-shadow:none;ba
         <!-- 3: settings -->
         <div class="pane"><div class="set">
           <div class="card"><div class="ch2"><span data-ic="user"></span>Profile</div>
-            <div class="rowb"><div class="pf"><div class="av" id="myav"></div><div><b id="myname"></b><small>Shown to everyone in the room</small></div></div><button class="sm" id="rnb">Edit</button></div>
-            <label>Your chat bubble color<div class="sw" id="ccs"></div></label>
+            <div class="prof"><div class="av" id="myav"></div><div class="pn2"><b id="myname"></b><div class="bub">Bubble<div class="sw s4" id="ccs"></div></div></div><button class="sm" id="rnb">Edit</button></div>
           </div>
           <div class="card"><div class="ch2"><span data-ic="share"></span>Invite</div>
             <div class="rowb"><div><b class="mono" id="setcode"></b><small>Room code</small></div><button class="sm pri" id="inv">Invite friends</button></div>
@@ -221,11 +268,6 @@ input[type=range]{padding:0;height:6px;accent-color:var(--ac);box-shadow:none;ba
           <div class="card"><div class="ch2"><span data-ic="users"></span>Room</div>
             <div class="rowb" id="hostblk"><div>Everyone can control the video<small>Play, pause and skip for all</small></div><button class="tgl" id="opn" role="switch" aria-checked="false" aria-label="Everyone can control the video"></button></div>
             <div id="plist" class="plist"></div>
-          </div>
-          <div class="card"><div class="ch2"><span data-ic="mic"></span>Voice</div>
-            <div id="vst" class="plist"></div>
-            <p class="hint" id="vhint" hidden>Some mobile networks block direct voice connections. A free relay (TURN) fixes this - see the README.</p>
-            <p class="hint">Tip: use headphones to avoid echo.</p>
           </div>
           <div class="card"><div class="ch2"><span data-ic="palette"></span>Appearance<span class="pill">Shared with room</span></div>
             <label>Theme<div class="themes" id="ths"></div></label>
@@ -278,16 +320,18 @@ const CFG={
 
 /* ===== VOICE RELAY (TURN) =====
    Phones on mobile data usually need a TURN relay for voice to work.
-   Get a free one at metered.ca (Open Relay, 20 GB/month free), then EITHER:
-   - paste your credentials URL below as TURN_API, e.g.
-     "https://YOURAPP.metered.live/api/v1/turn/credentials?apiKey=YOURKEY"
-   - or add your own servers to TURN_STATIC.                                   */
+   Easiest free option (no card): create an account at expressturn.com, then paste the
+   username and password from its dashboard below. If the dashboard shows a different
+   server name than relay1.expressturn.com, change TURN_HOST to match it.            */
+const TURN_USER="000000002109545851";
+const TURN_PASS="4cO0k7qIPZm4WWbjnPutEmCtBNY=";
+const TURN_HOST="free.expressturn.com";
+/* Optional: a URL that returns {iceServers:[...]} (for example a Cloudflare Worker) */
 const TURN_API="";
-const TURN_STATIC=[
-  {urls:"turn:openrelay.metered.ca:80",username:"openrelayproject",credential:"openrelayproject"},
-  {urls:"turn:openrelay.metered.ca:443",username:"openrelayproject",credential:"openrelayproject"},
-  {urls:"turns:openrelay.metered.ca:443?transport=tcp",username:"openrelayproject",credential:"openrelayproject"}
-];
+const TURN_STATIC=TURN_USER?[
+  {urls:"stun:"+TURN_HOST+":3478"},
+  {urls:["turn:"+TURN_HOST+":3478?transport=udp","turn:"+TURN_HOST+":3478?transport=tcp","turns:"+TURN_HOST+":443?transport=tcp"],username:TURN_USER,credential:TURN_PASS}
+]:[];
 let ICE=[{urls:"stun:stun.l.google.com:19302"},{urls:"stun:stun1.l.google.com:19302"},...TURN_STATIC];
 const iceReady=(async()=>{if(!TURN_API)return;try{const j=await(await fetch(TURN_API)).json();ICE=ICE.concat(Array.isArray(j)?j:(j&&j.iceServers)||[])}catch(_){}})();
 const TTL=48*3600*1000;
@@ -307,18 +351,22 @@ const IC={
   user:svg('<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>'),
   users:svg('<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>'),
   palette:svg('<circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.93 0 1.65-.75 1.65-1.69 0-.44-.18-.83-.44-1.12-.29-.29-.44-.65-.44-1.13a1.64 1.64 0 0 1 1.67-1.67h2c3.05 0 5.55-2.5 5.55-5.55C21.97 6.01 17.46 2 12 2z"/>'),
-  logout:svg('<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/>')
+  logout:svg('<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/>'),
+  copy:svg('<rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>'),
+  heart:svg('<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>'),
+  chat:svg('<path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>'),
+  clock:svg('<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>')
 };
 document.querySelectorAll("[data-ic]").forEach(e=>e.innerHTML=IC[e.dataset.ic]);
 
 /* ---------- themes (shared with the whole room) ---------- */
 const KEYS=["bg","g1","c1","c2","b1","b2","bs","fg","mu","bd","inp","u1","u2","ac","ac2","ts","dim"];
 const TH={
-  dark:["#0e0e13","#1c1c28","#1d1d27","#15151c","#3a3a47","#26262f","#101016","#f2f2f5","#8b8b99","rgba(255,255,255,.08)","#13131a","#2a2a36","#22222c","#ff6a3d","#ff3d7f","rgba(0,0,0,.4)","0,0,0"],
+  dark:["#0f0b1a","#2a1646","#1b1530","#140f25","#3b3153","#272038","#0c0916","#f5f1ff","#9a8fb8","rgba(255,255,255,.09)","#120d20","#2c2442","#241d38","#ff5fa2","#9b5cf6","rgba(0,0,0,.4)","0,0,0"],
   ocean:["#08121c","#123049","#0f2233","#0b1824","#25415a","#182f45","#07121c","#eaf4ff","#7f9bb5","rgba(255,255,255,.09)","#0a1722","#1b3550","#142a40","#2ec4ff","#3d7bff","rgba(0,0,0,.4)","0,0,0"],
   purple:["#110c1c","#2a1a4a","#1f1533","#171026","#46335f","#2f2244","#120b1d","#f4eeff","#a08fbf","rgba(255,255,255,.09)","#150f22","#33254d","#281c3d","#b66bff","#ff3dc8","rgba(0,0,0,.4)","0,0,0"],
   forest:["#0b140f","#14301f","#12231a","#0d1a13","#2f4a38","#213628","#0a120d","#ecfff3","#86a994","rgba(255,255,255,.09)","#0b1510","#1f3a2a","#192f22","#3ddc84","#12b8a6","rgba(0,0,0,.4)","0,0,0"],
-  rose:["#1a0d12","#3d1626","#2a1620","#20101a","#5a3040","#402030","#1a0b12","#fff0f4","#bf8f9d","rgba(255,255,255,.09)","#1d0f16","#3a2230","#2e1a26","#ff5c8a","#ff9a3d","rgba(0,0,0,.4)","0,0,0"],
+  sunset:["#0e0e13","#1c1c28","#1d1d27","#15151c","#3a3a47","#26262f","#101016","#f2f2f5","#8b8b99","rgba(255,255,255,.08)","#13131a","#2a2a36","#22222c","#ff6a3d","#ff3d7f","rgba(0,0,0,.4)","0,0,0"],
   light:["#f3f1ed","#ffffff","#ffffff","#f6f4f0","#ffffff","#e6e3dd","#bdb9b0","#1c1c22","#6d6d78","rgba(0,0,0,.1)","#ffffff","#ffffff","#eeece7","#ff6a3d","#ff3d7f","rgba(255,255,255,.6)","255,255,255"]
 };
 let theme="dark",bgData="",dim=55;
@@ -405,7 +453,7 @@ async function go(create){
   }catch(e){err(e==="nf"?"Room not found":e==="exp"?"This room has expired (48 hours)":e==="full"?"Room is full (max 5 people)":e==="kick"?"You were removed from this room":"Could not join: "+(e.code||e.message||e))}
 }
 function start(){
-  $("home").hidden=true;$("room").hidden=false;$("rc").textContent="Room "+code;$("setcode").textContent=code.toUpperCase();
+  $("home").hidden=true;$("room").hidden=false;$("rc").textContent=code.toUpperCase();$("setcode").textContent=code.toUpperCase();
   fit();settingsUI();
   onValue(ref(db,".info/serverTimeOffset"),s=>{
     off=s.val()||0;
@@ -440,13 +488,13 @@ function ui(){
   const c=canCtl();
   $("srcblk").hidden=!c;$("vonly").hidden=c;$("hostblk").hidden=uid!==hostUid;
   $("opn").setAttribute("aria-checked",openCtl);
-  $("role").textContent=uid===hostUid?"Host":(openCtl?"Everyone controls":"Viewer");
+  $("role").textContent=uid===hostUid?"👑 Host":(openCtl?"Everyone controls":"Viewer");$("role").className="tag"+(uid===hostUid?" host":"");
   $("addv").hidden=!c;recent();
   if(!yt)$("emptyt").textContent=c?"No video yet":"Waiting for the host to add a video";
   people();
 }
 function people(){
-  const box=$("ppl");box.textContent="";const ids=Object.keys(U);$("cnt").textContent=ids.length+"/5";
+  const box=$("ppl");box.textContent="";const ids=Object.keys(U);$("cnt").textContent=ids.length+" online";$("pds").innerHTML=Array.from({length:5},(_,i)=>'<i class="'+(i<ids.length?"on":"")+'"></i>').join("");
   ids.forEach(id=>{
     const u=U[id],d=document.createElement("div");d.className="pe"+(id===uid?" me":"");d.id="u-"+id;
     d.append(avatar(id,u,true));
@@ -475,6 +523,7 @@ function avatar(id,u,withBadges){
   if(withBadges){
     if(id===hostUid){const c=document.createElement("i");c.className="cr";c.textContent="👑";a.append(c)}
     const m=document.createElement("i");m.className="mc"+(u.mic?" live":"");m.innerHTML=u.mic?IC.mic:IC.micOff;a.append(m);
+    if(id!==uid){const v=document.createElement("i");v.className="vd "+vcls(id);a.append(v)}
   }
   return a;
 }
@@ -490,6 +539,7 @@ const inviteUrl=()=>location.origin+location.pathname+"?r="+code;
 const inviteText=()=>"Join my Watch Party! Room code: "+code;
 $("share").onclick=$("inv").onclick=()=>{$("shc").textContent=code.toUpperCase();$("shl").value=inviteUrl();$("sh").hidden=false};
 $("shx").onclick=()=>$("sh").hidden=true;
+$("rcb").onclick=()=>$("shcp").click();
 $("shcp").onclick=async()=>{try{await navigator.clipboard.writeText(inviteUrl());toast("Invite link copied")}catch(_){$("shl").select()}};
 $("shn").onclick=async()=>{try{if(navigator.share)await navigator.share({title:"Watch Party",text:inviteText(),url:inviteUrl()});else $("shcp").click()}catch(_){}};
 $("shw").onclick=()=>window.open("https://wa.me/?text="+encodeURIComponent(inviteText()+" "+inviteUrl()),"_blank");
@@ -516,7 +566,7 @@ pg.addEventListener("scroll",()=>{
 });
 
 /* ---------- settings: chat color, theme, background ---------- */
-const CC=["","#ff3d7f","#b66bff","#3d7bff","#2ec4ff","#2fcf8a","#f5b324","#8b8b99"];
+const CC=["","#3d7bff","#2fcf8a","#f5b324"];
 function swatches(){
   const cs=$("ccs");cs.textContent="";
   CC.forEach(c=>{const i=document.createElement("i");i.style.background=c?"linear-gradient(135deg,"+c+","+shade(c,-25)+")":"linear-gradient(135deg,var(--ac),var(--ac2))";i.title=c||"Default";if(c===cc)i.className="sel";i.onclick=()=>{cc=c;localStorage.setItem("wp_cc",c);swatches()};cs.append(i)});
@@ -731,19 +781,8 @@ function voiceCheck(){
   }
   vstat();
 }
-function vstat(){
-  const b=$("vst");b.textContent="";const ids=Object.keys(U).filter(i=>i!==uid);let bad=false;
-  if(!ids.length){b.innerHTML='<span class="hint">Nobody else is here yet.</span>';$("vhint").hidden=true;return}
-  ids.forEach(id=>{
-    const p=peers[id],r=document.createElement("div");r.className="pl";
-    const s=document.createElement("span");s.textContent=(U[id].name||"")+(U[id].mic?"  (mic on)":"");
-    const st=!p?"Waiting":p.pc.connectionState==="connected"?"Connected":p.pc.connectionState==="failed"?"Failed":"Connecting...";
-    if(st==="Failed")bad=true;
-    const t=document.createElement("em");t.textContent=st;t.className="vs"+(st==="Connected"?" ok":st==="Failed"?" bad":"");
-    r.append(avatar(id,U[id],false),s,t);b.append(r);
-  });
-  $("vhint").hidden=!bad;
-}
+function vcls(id){const p=peers[id];if(!p)return"";const s=p.pc.connectionState;return s==="connected"?"ok":s==="failed"?"bad":"wait"}
+function vstat(){for(const id in U){if(id===uid)continue;const el=$("u-"+id),d=el&&el.querySelector(".vd");if(d)d.className="vd "+vcls(id)}}
 $("mic").onclick=async()=>{
   if(!micTrack){
     try{
